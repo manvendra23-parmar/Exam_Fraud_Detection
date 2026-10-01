@@ -101,21 +101,3 @@ The development of this project was supported by the following resources:
 
 ---
 
-
-## Credits / Acknowledgments
-
-This project was developed through the collaborative efforts of:
-
-* **Devika Verma (UI22EC19)**
-* **Aman Parmar (UI22EC07)**
-
-### 🎓 Guidance & Mentorship
-
-This work was carried out under the supervision of:
-
-**Dr. Sudeep Sharma**
-*Associate Professor, IIIT Surat*
-
----
-
-We sincerely thank our mentor for their continuous guidance, support, and valuable insights throughout the development of this project.
