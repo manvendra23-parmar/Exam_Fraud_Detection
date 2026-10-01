@@ -1,0 +1,23 @@
+# Service Account Credentials - NEVER COMMIT THESE!
+serviceAccount.json
+firebaseServiceKey.json
+serviceAccountKey.json
+# Specific exposed file
+backend/exam-fraud-detection-firebase-adminsdk-fbsvc-8b6689a7a5.json
+# All Firebase Admin SDK service account files
+*-firebase-adminsdk-*.json
+*firebase-adminsdk*.json
+# All service account JSON files
+*service-account*.json
+*serviceAccount*.json
+*.service-account.json
+
+# Video files
+video.mp4
+videoplayback.mp4
+
+# Dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+zoom-backend/node_modules/

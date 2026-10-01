@@ -1,0 +1,73 @@
+# Python / Django artifacts
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.sqlite3-journal
+*.log
+*.pot
+*.py[co]
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE/editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+*.env
+*.key
+*.pem
+*.secret
+secrets.json
+
+# Uploaded assets / temp files
+uploaded_assets/
+service_accounts/
+*.json.tmp
+*.tmp
+media/
+staticfiles/
+static_root/
+
+# Django specific
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# OS files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+dist/
+build/
+*.egg
+

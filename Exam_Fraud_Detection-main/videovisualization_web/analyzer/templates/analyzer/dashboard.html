@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Intelligence Runner</title>
+    <style>
+        :root {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            color: #111;
+            background-color: #f6f7fb;
+        }
+        body {
+            margin: 0;
+            padding: 2rem;
+        }
+        .layout {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            margin-top: 0;
+        }
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+        label {
+            font-weight: 600;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 0.65rem;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-size: 1rem;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem 1.25rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .helptext {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        .errorlist {
+            list-style: none;
+            padding: 0;
+            margin: 0.25rem 0 0;
+            color: #b91c1c;
+            font-size: 0.9rem;
+        }
+        pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        .result-card {
+            margin-top: 2rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            background: #f9fafb;
+        }
+        .meta {
+            margin-bottom: 1rem;
+        }
+        .meta dt {
+            font-weight: 600;
+        }
+        .meta dd {
+            margin: 0 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="layout">
+    <h1>Run Google Video Intelligence</h1>
+    <p>
+        Upload your service account key, provide the Cloud Storage video URI, and this page
+        will execute the same analysis pipeline as <code>videovisualization/run_video_intelligence.py</code>.
+    </p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <div class="helptext">{{ field.help_text }}</div>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        {{ form.non_field_errors }}
+        <button type="submit">Start Analysis</button>
+    </form>
+
+    {% if result_json %}
+        <div class="result-card">
+            <h2>Latest Result</h2>
+            <dl class="meta">
+                <dt>Operation Name</dt>
+                <dd>{{ metadata.operation_name }}</dd>
+                <dt>Output JSON location</dt>
+                <dd>{{ metadata.output_uri }}</dd>
+            </dl>
+            <pre>{{ result_json }}</pre>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
+
